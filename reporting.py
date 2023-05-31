@@ -3,10 +3,12 @@ import tqdm
 from config import REPORTS
 import json
 
-def report(query, seeds, scores, name, n_results=5000):
-    # with open(REPORTS/'score.json', 'w') as f:
-    #     json.dump(scores, f, indent=2)
-    with open(REPORTS/name, 'w') as f:
+def report(query, seeds, scores, name, n_results=50):
+    folder = REPORTS/name
+    folder.mkdir(parents=True, exists_ok=True)
+    with open(folder/'score.json', 'w') as f:
+         json.dump(scores, f, indent=2)
+    with open(folder/'report.txt', 'w') as f:
         f.write(f'Searching {query} from {seeds}\n')
         for item in tqdm.tqdm(scores[:min(n_results, len(scores))]):
             data = sources.retrieve(item['source'], item['line'])

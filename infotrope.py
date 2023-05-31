@@ -10,7 +10,7 @@
 # Right now, the tool only really supports directed queries.  This involves writing a scraper for the
 # sources of interest (including the reference component!) then calling
 # python infotrope.py <output filename [stored in ./reports]> "<query>" <seed source> <seed sources...> 
-# 
+# example: `python infotrope.py mck_supply_chain.txt "Supply chain optimization, manufacturing operations and digital engineering improved through artificial intelligence and machine learning" "https://www.mckinsey.com/capabilities"`
 
 import sys
 import query as QUERY
